@@ -1,0 +1,118 @@
+---
+# Container descriptor
+- descriptor: "pip-services:context-info:default:default:1.0"
+  name: "iqs-bundles-content-node"
+  description: "ContentBundle microservice for pip-services"
+
+# Console logger
+- descriptor: "pip-services:logger:console:default:1.0"
+  level: "trace"
+
+# Performance counters that posts values to log
+- descriptor: "pip-services:counters:log:default:1.0"
+  level: "trace"
+
+# AWS logging component
+- descriptor: "pip-services:logger:cloudwatch:default:1.0"
+  level: "info"
+  group: "{{ENV_NAME}}"
+  connection:
+    region: "{{{AWS_REGION}}}"
+  credential:
+    access_id: "{{{AWS_ACCESS_ID}}}"
+    access_key: "{{{AWS_ACCESS_KEY}}}"
+
+# AWS metrics component
+- descriptor: "pip-services:counters:cloudwatch:default:1.0"
+  level: "info"
+  connection:
+    region: "{{{AWS_REGION}}}"
+  credential:
+    access_id: "{{{AWS_ACCESS_ID}}}"
+    access_key: "{{{AWS_ACCESS_KEY}}}"
+
+# Common HTTP endpoint
+- descriptor: "pip-services:endpoint:http:default:1.0"
+  connection:
+    protocol: "http"
+    host: "0.0.0.0"
+    port: 8080
+
+# Heartbeat service
+- descriptor: "pip-services:heartbeat-service:http:default:1.0"
+
+# Status service
+- descriptor: "pip-services:status-service:http:default:1.0"
+
+# Discovery service
+- descriptor: "pip-services:discovery:memory:default:*"
+  mongodb: "uri={{{MONGO_SERVICE_URI}}};host={{{MONGO_SERVICE_HOST}}};port={{{MONGO_SERVICE_PORT}}};database={{{MONGO_DB}}}"
+
+############## ContentBundle components ##############
+
+# Attachments components
+- descriptor: "pip-services-attachments:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-attachments:controller:default:default:*"
+- descriptor: "pip-services-attachments:client:direct:default:*"
+- descriptor: "pip-services-attachments:service:http:default:*"
+
+# Image Sets components
+- descriptor: "pip-services-imagesets:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-imagesets:controller:default:default:*"
+- descriptor: "pip-services-imagesets:client:direct:default:*"
+- descriptor: "pip-services-imagesets:service:http:default:*"
+
+# Tips components
+- descriptor: "pip-services-tips:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-tips:controller:default:default:*"
+- descriptor: "pip-services-tips:client:direct:default:*"
+- descriptor: "pip-services-tips:service:http:default:*"
+
+# Guides components
+- descriptor: "pip-services-guides:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-guides:controller:default:default:*"
+- descriptor: "pip-services-guides:client:direct:default:*"
+- descriptor: "pip-services-guides:service:http:default:*"
+
+# Help components
+- descriptor: "pip-services-help:persistence-topics:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-help:persistence-articles:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-help:controller:default:default:*"
+- descriptor: "pip-services-help:client:direct:default:*"
+- descriptor: "pip-services-help:service:http:default:*"
+
+# Dashboards components
+- descriptor: "pip-services-dashboards:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-dashboards:controller:default:default:*"
+- descriptor: "pip-services-dashboards:client:direct:default:*"
+- descriptor: "pip-services-dashboards:service:http:default:*"
+
+# Applications components
+- descriptor: "pip-services-applications:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-applications:controller:default:default:*"
+- descriptor: "pip-services-applications:client:direct:default:*"
+- descriptor: "pip-services-applications:service:http:default:*"
+
+# Message templates components
+- descriptor: "pip-services-msgtemplates:persistence:mongodb:default:*"
+  connection:
+    discovery_key: mongodb
+- descriptor: "pip-services-msgtemplates:controller:default:default:*"
+- descriptor: "pip-services-msgtemplates:client:direct:default:*"
+- descriptor: "pip-services-msgtemplates:service:http:default:*"

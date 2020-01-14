@@ -1,0 +1,69 @@
+{
+  "name": "iqs-bundles-content-node",
+  "version": "1.0.0",
+  "author": "Conceptual Vision Consulting LLC",
+  "description": "Microservice for deploying content pip-services microservices",
+  "contributors": [
+    "Sergey Seroukhov <seroukhov@gmail.com>"
+  ],
+  "main": "./obj/src/index.js",
+  "typings": "./obj/src/index.d.ts",
+  "keywords": [
+    "pip.services",
+    "content",
+    "microservice"
+  ],
+  "noAnalyze": true,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:iquipsys-positron/iqs-bundles-content-node.git"
+  },
+  "license": "SEE LICENSE IN LICENCE.md",
+  "engines": {
+    "node": ">=0.6.14"
+  },
+  "private": false,
+  "scripts": {
+    "start": "node app",
+    "test": "mocha -t 10000 -R spec -u tdd --recursive ./obj/test",
+    "benchmark": "matcha -R clean -I tdd ./benchmark/run.js"
+  },
+  "dependencies": {
+    "pip-services3-commons-node": "^3.0.0",
+    "pip-services3-components-node": "^3.0.0",
+    "pip-services3-container-node": "^3.0.0",
+    "pip-services3-data-node": "^3.0.0",
+    "pip-services3-aws-node": "^3.0.0",
+    "pip-services3-rpc-node": "^3.0.0",
+    "pip-services3-mongodb-node": "^3.0.0",
+    "pip-services3-facade-node": "^3.0.0",
+    "pip-clients-dashboards-node": "^1.0.0",
+    "pip-clients-help-node": "^1.0.0",
+    "pip-clients-tips-node": "^1.0.0",
+    "pip-clients-guides-node": "^1.0.0",
+    "pip-clients-imagesets-node": "^1.0.0",
+    "pip-clients-applications-node": "^1.0.0",
+    "pip-clients-msgtemplates-node": "^1.0.0",
+    "pip-clients-attachments-node": "^1.0.0",
+    "pip-clients-logging-node": "^1.0.0",
+    "pip-clients-perfmon-node": "^1.0.0",
+    "pip-services-dashboards-node": "^1.0.0",
+    "pip-services-help-node": "^1.0.0",
+    "pip-services-tips-node": "^1.0.0",
+    "pip-services-guides-node": "^1.0.0",
+    "pip-services-imagesets-node": "^1.0.0",
+    "pip-services-applications-node": "^1.0.0",
+    "pip-services-msgtemplates-node": "^1.0.0",
+    "pip-services-attachments-node": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "@types/lodash": "^4.0.0",
+    "@types/async": "^2.0.0",
+    "@types/mocha": "*",
+    "@types/chai": "*",
+    "mocha": "*",
+    "chai": "*",
+    "restify": "^4.3.4"
+  }
+}
